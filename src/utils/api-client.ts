@@ -34,6 +34,12 @@ interface AuditLogResponse {
   timestamp: string
 }
 
+interface CheckoutResponse {
+  success: boolean
+  checkout_url: string
+  session_id: string
+}
+
 /**
  * Get user's tier from backend
  * Used to verify tier status for paid users
@@ -125,6 +131,37 @@ export async function logAuditTrail(request: AuditLogRequest): Promise<AuditLogR
     return (await response.json()) as AuditLogResponse
   } catch (error) {
     console.warn('Error logging audit trail:', error)
+    return null
+  }
+}
+
+/**
+ * Create Stripe checkout session for upgrading subscription
+ * Requires valid Supabase Auth token
+ * @param tier 'pro' | 'max'
+ * @param authToken Supabase auth token from user session
+ * @returns Checkout URL or null if failed
+ */
+export async function createCheckoutSession(tier: 'pro' | 'max', authToken: string): Promise<string | null> {
+  try {
+    const response = await fetch(`${API_BASE}/api/stripe/checkout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`
+      },
+      body: JSON.stringify({ tier })
+    })
+
+    if (!response.ok) {
+      console.warn(`Failed to create checkout session: ${response.status}`)
+      return null
+    }
+
+    const data = (await response.json()) as CheckoutResponse
+    return data.checkout_url
+  } catch (error) {
+    console.warn('Error creating checkout session:', error)
     return null
   }
 }
