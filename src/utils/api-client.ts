@@ -3,7 +3,7 @@
  * Used by paid tiers (pro/max) to query usage and tiers from Supabase
  */
 
-const API_BASE = process.env.REACT_APP_API_BASE || 'https://money-maker-vercel.vercel.app'
+const API_BASE = process.env.REACT_APP_API_BASE || 'https://money-maker-nvvon38zk-kphilpots-projects.vercel.app'
 
 interface UsageResponse {
   count: number
