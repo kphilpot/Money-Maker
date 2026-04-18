@@ -15,7 +15,13 @@
       "Bash(npm install:*)",
       "Bash(vercel --version)",
       "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__list_teams",
-      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__list_projects"
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__list_projects",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__get_deployment",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__list_deployments",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__get_deployment_build_logs",
+      "Bash(curl -s \"https://money-maker-nvvon38zk-kphilpots-projects.vercel.app/api/users/test-user/tier\")",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__get_access_to_vercel_url",
+      "Bash(curl -s \"https://money-maker-nvvon38zk-kphilpots-projects.vercel.app/api/users/test-user/tier?_vercel_share=Y7eewxNEtjGXgwxm1kXvd2Vqvh8186F6\")"
     ]
   }
 }
