@@ -18,18 +18,22 @@ export default async function handler(req, res) {
   }
 
   try {
-    const timestamp = new Date().toISOString()
+    // Build insert object with only fields that exist in audit_trail table
+    const insertData = {
+      user_id: payload.userId,
+      hash: payload.hash,
+      previous_hash: payload.previousHash || null,
+      action: payload.action || 'verification',
+      result: payload.result || null,
+      screenshot_hash: payload.screenshotHash || null,
+      reasoning_hash: payload.reasoningHash || null,
+      rulebook_version: payload.rulebookVersion || null
+    }
 
     const { data, error } = await supabase
       .from('audit_trail')
-      .insert({
-        user_id: payload.userId,
-        hash: payload.hash,
-        created_at: timestamp,
-        previous_hash: payload.previousHash || null,
-        data: payload.data || null
-      })
-      .select('id, hash, created_at')
+      .insert(insertData)
+      .select('id, hash, timestamp')
       .single()
 
     if (error) {
@@ -40,7 +44,7 @@ export default async function handler(req, res) {
     return res.status(201).json({
       id: data.id,
       hash: data.hash,
-      timestamp: data.created_at
+      timestamp: data.timestamp
     })
   } catch (error) {
     console.error('Error logging audit trail:', error)
