@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__list_organizations",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__get_cost",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__confirm_cost",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__create_project",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__apply_migration",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__generate_typescript_types",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__get_project_url",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__get_publishable_keys",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__deploy_to_vercel",
+      "Bash(npm list:*)",
+      "Bash(npm install:*)",
+      "Bash(vercel --version)",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__list_teams",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__list_projects"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "verifyai-backend",
+  "version": "0.1.0",
+  "description": "VerifyAI backend for Vercel deployment",
+  "private": true,
+  "dependencies": {
+    "@supabase/supabase-js": "^2.46.0",
+    "@vercel/node": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "typescript": "^5.9.2"
+  }
+}

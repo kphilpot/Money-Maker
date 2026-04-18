@@ -1,0 +1,59 @@
+COPY THIS INTO NEXT CHAT SESSION:
+
+---
+
+You are continuing work on VerifyAI, a Chrome extension for professional screenshot verification with multi-tier pricing.
+
+CURRENT STATUS (As of 2026-04-17):
+- Build: ✅ Passing
+- Phase 3A (Free Tier Injection): ✅ Complete - content script created, tier-based routing implemented
+- Free tier now injects into user's open Claude/ChatGPT/Gemini tabs automatically
+- Pro/Max tiers use Claude API with user's key
+
+WHAT'S BUILT:
+✅ Session management (50/100/∞ daily limits, soft ceiling throttling)
+✅ Model selection (Haiku/Sonnet/Opus with correct latest API IDs)
+✅ Conversation history (expandable, last 50 entries)
+✅ Free tier injection system (content script + DOM detection + response capture)
+✅ Type-safe TypeScript throughout
+✅ Error handling (friendly messages, no hard blocks)
+
+WHAT'S NEXT (PRIORITY ORDER):
+1. TEST: Verify free tier injection works (Claude tab receives screenshot + prompt)
+2. PHASE 3B: Supabase backend setup
+   - Create Supabase project
+   - Define database schema (users, daily_usage, audit_trail, subscriptions)
+   - Create Vercel API functions for usage tracking
+3. PHASE 4: Immutable audit trail with SHA-256 hashing
+4. PHASE 5: Stripe payment integration
+
+KEY FILES:
+- src/content.ts (NEW - 280 lines, injection logic)
+- src/background.ts (updated with performFreeVerification)
+- manifest.json (updated with content_scripts)
+- CURRENT_HANDOFF.md (detailed status + testing instructions)
+- CODEX_PROMPT.md (implementation phases breakdown)
+- HANDOFF.md (original 1600-line spec with full business model)
+
+IMMEDIATE TASKS:
+1. Read CURRENT_HANDOFF.md (section "How To Test Free Tier Injection")
+2. Test free tier: Open Claude.ai → Money Maker → Capture → Send prompt → Verify it appears in Claude tab
+3. If working: Start Phase 3B (Supabase)
+4. If broken: Debug content script message passing
+
+GIT STATUS:
+No git repo currently - consider initializing one
+
+BUILD COMMANDS:
+- npm run build (one-time)
+- npm run watch (watch mode)
+- npm run typecheck (type checking)
+
+CHROME LOADING:
+chrome://extensions → Load unpacked → select Money Maker folder
+
+You have full context from HANDOFF.md, CODEX_PROMPT.md, and CURRENT_HANDOFF.md to understand the complete product vision and implementation plan.
+
+---
+
+END COPY

@@ -1,0 +1,25 @@
+{
+  "name": "verifyai-extension",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Professional screenshot verification with Claude AI",
+  "scripts": {
+    "build": "tsc --noEmit && node ./scripts/build.mjs",
+    "watch": "node ./scripts/build.mjs --watch",
+    "dev": "npm run watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.90.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.24",
+    "@types/node": "^22.15.3",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "esbuild": "^0.25.9",
+    "typescript": "^5.9.2"
+  }
+}
