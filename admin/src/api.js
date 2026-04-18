@@ -1,6 +1,8 @@
 import { getAuthToken } from './auth.js'
 
-const API_BASE = 'https://money-maker-kl2345-5xrez0vrk-kphilpots-projects.vercel.app'
+const API_BASE = typeof window !== 'undefined' && window.location.origin
+  ? window.location.origin
+  : 'https://money-maker-kl2345.vercel.app'
 
 async function fetchAPI(endpoint, options = {}) {
   const token = getAuthToken()

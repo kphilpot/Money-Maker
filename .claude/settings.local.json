@@ -21,7 +21,24 @@
       "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__get_deployment_build_logs",
       "Bash(curl -s \"https://money-maker-nvvon38zk-kphilpots-projects.vercel.app/api/users/test-user/tier\")",
       "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__get_access_to_vercel_url",
-      "Bash(curl -s \"https://money-maker-nvvon38zk-kphilpots-projects.vercel.app/api/users/test-user/tier?_vercel_share=Y7eewxNEtjGXgwxm1kXvd2Vqvh8186F6\")"
+      "Bash(curl -s \"https://money-maker-nvvon38zk-kphilpots-projects.vercel.app/api/users/test-user/tier?_vercel_share=Y7eewxNEtjGXgwxm1kXvd2Vqvh8186F6\")",
+      "Bash(vercel env:*)",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__web_fetch_vercel_url",
+      "Bash(curl -s \"https://money-maker-kl2345-2b86y7nyx-kphilpots-projects.vercel.app/api/users/test-user/tier\")",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__execute_sql",
+      "Bash(curl -s \"https://money-maker-kl2345-2b86y7nyx-kphilpots-projects.vercel.app/api/users/550e8400-e29b-41d4-a716-446655440000/tier\")",
+      "Bash(curl -s \"https://money-maker-kl2345-nlwbtl07r-kphilpots-projects.vercel.app/api/users/550e8400-e29b-41d4-a716-446655440000/tier\")",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__get_runtime_logs",
+      "mcp__097aea2b-fc9b-43ad-94ff-ef3eb39a4eaa__get_project",
+      "Bash(curl -s \"https://money-maker-kl2345-rmcq13sc1-kphilpots-projects.vercel.app/api/users/550e8400-e29b-41d4-a716-446655440000/tier\")",
+      "Bash(curl -s https://money-maker-kl2345-rmcq13sc1-kphilpots-projects.vercel.app/api/users/550e8400-e29b-41d4-a716-446655440000/tier)",
+      "Bash(curl -s https://money-maker-kl2345-rmcq13sc1-kphilpots-projects.vercel.app/api/users/550e8400-e29b-41d4-a716-446655440000/usage/today)",
+      "Bash(curl -s -X POST https://money-maker-kl2345-rmcq13sc1-kphilpots-projects.vercel.app/api/users/550e8400-e29b-41d4-a716-446655440000/usage)",
+      "Bash(curl -s -X POST -H 'Content-Type: application/json' -d '{:*)",
+      "mcp__b82a9f44-172f-42b4-bcf9-a00d8d438b85__list_tables",
+      "Bash(curl -s -X POST https://money-maker-kl2345-kz1ra9qe6-kphilpots-projects.vercel.app/api/audit/verify -H 'Content-Type: application/json' -d '{\"user_id\":\"550e8400-e29b-41d4-a716-446655440000\"}')",
+      "Bash(curl -s -X POST https://money-maker-kl2345-5xrez0vrk-kphilpots-projects.vercel.app/api/audit/verify -H 'Content-Type: application/json' -d '{\"user_id\":\"550e8400-e29b-41d4-a716-446655440000\"}')",
+      "Bash(curl -s https://money-maker-kl2345-5xrez0vrk-kphilpots-projects.vercel.app/api/audit/chain/550e8400-e29b-41d4-a716-446655440000)"
     ]
   }
 }

@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { Resend } from 'resend'
 import { generateReceiptHTML, generateReceiptPlainText } from '../utils/email-templates.js'
+import { requireAdminAuth } from '../utils/admin-auth.js'
 import crypto from 'crypto'
 
 const supabaseUrl = process.env.SUPABASE_URL || 'https://sppetblailyeblxgpqss.supabase.co'
@@ -34,6 +35,12 @@ function verifyEntryHash(entry) {
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
+  }
+
+  // Verify admin authentication
+  const authError = await requireAdminAuth(req, res)
+  if (authError) {
+    return authError
   }
 
   if (!resendApiKey) {

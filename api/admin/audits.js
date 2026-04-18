@@ -1,34 +1,21 @@
 import { createClient } from '@supabase/supabase-js'
+import { requireAdminAuth } from '../utils/admin-auth.js'
 
 const supabaseUrl = process.env.SUPABASE_URL || 'https://sppetblailyeblxgpqss.supabase.co'
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNwcGV0YmxhaWx5ZWJseGdwcXNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NDY3NzUsImV4cCI6MjA5MjAyMjc3NX0.TsD_HtFj0uoO4t22sR3CGEoHOdbYGI5FnnYvV-fEjeU'
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-// Simple JWT verification
-function verifyToken(token) {
-  if (!token) return false
-  try {
-    const decoded = JSON.parse(Buffer.from(token, 'base64').toString())
-    return decoded.role === 'admin' && decoded.exp > Math.floor(Date.now() / 1000)
-  } catch {
-    return false
-  }
-}
-
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  // Simple auth check
-  const authHeader = req.headers.authorization
-  const token = authHeader?.replace('Bearer ', '')
-
-  // Allow access without auth for now (demo mode)
-  // if (!token || !verifyToken(token)) {
-  //   return res.status(401).json({ error: 'Unauthorized' })
-  // }
+  // Verify admin authentication
+  const authError = await requireAdminAuth(req, res)
+  if (authError) {
+    return authError
+  }
 
   const { user_id, start_date, end_date, page = 1 } = req.query
   const pageNum = parseInt(page) || 1
